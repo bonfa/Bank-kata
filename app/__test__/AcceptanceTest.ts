@@ -4,7 +4,7 @@ import {Output} from "../source/Output";
 
 describe('It works', () => {
   const output = Mock.ofType<Output>();
-  const account = new Account(undefined, calendar.object);
+  const account = new Account(output.object);
   account.deposit(500);
   account.withdraw(100);
 
