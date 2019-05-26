@@ -1,5 +1,7 @@
 import {Transactions} from "../Transactions";
 
-export interface StatementPrinter {
-  printStatement(transactions: Transactions): void;
+export class StatementPrinter {
+  printStatement(transactions: Transactions): void {
+    // todo
+  }
 }

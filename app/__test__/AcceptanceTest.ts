@@ -1,10 +1,12 @@
 import {Mock, Times} from "typemoq";
 import {Account} from "../source/Account";
 import {Output} from "../source/Output";
+import {TransactionRepository} from "../source/TransactionRepository";
+import {StatementPrinter} from "../source/StatementPrinter";
 
 describe('It works', () => {
   const output = Mock.ofType<Output>();
-  const account = new Account(transactionRepository.object, statementPrinter.object);
+  const account = new Account(new TransactionRepository(), new StatementPrinter());
   account.deposit(500);
   account.withdraw(100);
 
