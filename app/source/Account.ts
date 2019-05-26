@@ -19,6 +19,6 @@ export class Account {
 
   printStatement(): void {
     let allTransactions = this.transactionRepository.allTransactions();
-    this.statementPrinter.printStatement(allTransactions);
+    this.statementPrinter.printStatementOf(allTransactions);
   }
 }

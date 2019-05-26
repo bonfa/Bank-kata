@@ -46,7 +46,7 @@ describe('Account', () => {
 
       account.printStatement();
 
-      statementPrinter.verify(it => it.printStatement(someTransactions()), Times.once());
+      statementPrinter.verify(it => it.printStatementOf(someTransactions()), Times.once());
     });
   });
 });

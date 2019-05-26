@@ -1,4 +1,3 @@
 export interface Output {
-
-  print(statement: string): void;
+  printLine(statement: string): void;
 }

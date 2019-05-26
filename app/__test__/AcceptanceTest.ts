@@ -13,7 +13,7 @@ describe('It works', () => {
 
   account.printStatement();
 
-  output.verify(it=>it.print("Date | Amount | Balance"), Times.exactly(1));
-  output.verify(it=>it.print("24.12.2015 | +500 | 500"), Times.exactly(1));
-  output.verify(it=>it.print("23.8.2016 | -100 | 400"), Times.exactly(1));
+  output.verify(it=>it.printLine("Date | Amount | Balance"), Times.exactly(1));
+  output.verify(it=>it.printLine("24.12.2015 | +500 | 500"), Times.exactly(1));
+  output.verify(it=>it.printLine("23.8.2016 | -100 | 400"), Times.exactly(1));
 });

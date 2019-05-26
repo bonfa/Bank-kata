@@ -15,4 +15,8 @@ export class Transactions {
   static from(transactions: Transaction[]) {
     return new Transactions(transactions)
   }
+
+  toArray(): Transaction[] {
+    return (<any>Object).assign([], this.transactions);
+  }
 }
