@@ -1,15 +1,16 @@
-import {Transaction, TransactionRepository} from "../__test__/AccountTest";
+import {TransactionRepository} from "./TransactionRepository";
+import {Transaction} from "./Transaction";
 
 export class Account {
   constructor(private readonly transactionRepository: TransactionRepository) {
   }
 
   deposit(number: number): void {
-    this.transactionRepository.addTransaction(new Transaction(number))
+    this.transactionRepository.addTransaction(Transaction.depositOf(number))
   }
 
   withdraw(number: number): void {
-
+    this.transactionRepository.addTransaction(Transaction.withdrawOf(number))
   }
 
   printBalance(): void {
