@@ -1,7 +1,5 @@
-import {Output} from "./Output";
-
 export class Account {
-  constructor(output: Output) {
+  constructor() {
   }
 
   deposit(number: number): void {
