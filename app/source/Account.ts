@@ -14,7 +14,7 @@ export class Account {
   }
 
   withdraw(number: number): void {
-    this.transactionRepository.addTransaction(Transaction.withdrawOf(number))
+    this.transactionRepository.addTransaction(Transaction.withdrawOf(number, this.calendar.now()))
   }
 
   printStatement(): void {

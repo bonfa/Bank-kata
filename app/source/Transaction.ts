@@ -6,7 +6,7 @@ export class Transaction {
     return new Transaction(amount, onDate);
   }
 
-  static withdrawOf(number: number) {
-    return new Transaction(-number, null);
+  static withdrawOf(number: number, onDate: Date) {
+    return new Transaction(-number, onDate);
   }
 }

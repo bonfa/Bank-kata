@@ -9,8 +9,6 @@ export interface Calendar {
   now(): Date;
 }
 
-const A_DATE = new Date();
-
 describe('Account', () => {
   let transactionRepository: IMock<TransactionRepository>;
   let statementPrinter: IMock<StatementPrinter>;
@@ -37,9 +35,11 @@ describe('Account', () => {
 
   describe('when withdrawing some money', () => {
     it('should store the transaction in the repository', () => {
+      calendar.setup(it => it.now()).returns(() => A_DATE);
+
       account.withdraw(300);
 
-      transactionRepository.verify(it => it.addTransaction(Transaction.withdrawOf(300)), Times.once());
+      transactionRepository.verify(it => it.addTransaction(Transaction.withdrawOf(300, A_DATE)), Times.once());
     });
   });
 
@@ -53,6 +53,8 @@ describe('Account', () => {
     });
   });
 });
+
+const A_DATE = new Date();
 
 const someTransactions: () => Transactions = () => {
   return new Transactions()
