@@ -9,7 +9,7 @@ describe('TransactionRepository', () => {
 
       let allTransactions = transactionRepository.allTransactions();
 
-      expect(allTransactions).toEqual(new Transactions())
+      expect(allTransactions).toEqual(Transactions.empty())
     });
   });
 
@@ -20,13 +20,13 @@ describe('TransactionRepository', () => {
 
       let allTransactions = transactionRepository.allTransactions();
 
-      expect(allTransactions).toEqual(new Transactions(Transaction.withdrawOf(400, A_DATE)))
+      expect(allTransactions).toEqual(Transactions.from([Transaction.withdrawOf(400, A_DATE)]))
 
     });
   });
 
   describe('when many transactions are added', () => {
-    it('returns the transactions containing all the item sorted by order of insertion', () => {
+    it('returns the transactions containing all the items sorted by order of insertion', () => {
       let transactionRepository = new TransactionRepository();
       transactionRepository.addTransaction(Transaction.depositOf(1000, A_DATE));
       transactionRepository.addTransaction(Transaction.withdrawOf(400, A_DATE));
@@ -35,10 +35,10 @@ describe('TransactionRepository', () => {
       let allTransactions = transactionRepository.allTransactions();
 
       expect(allTransactions).toEqual(
-        new Transactions(
+        Transactions.from([
           Transaction.depositOf(1000, A_DATE),
           Transaction.withdrawOf(400, A_DATE),
-          Transaction.withdrawOf(300, ANOTHER_DATE)
+          Transaction.withdrawOf(300, ANOTHER_DATE)]
         )
       )
     });

@@ -5,7 +5,7 @@ export class TransactionRepository {
   private readonly transactions: Transactions;
 
   constructor() {
-    this.transactions = new Transactions();
+    this.transactions = Transactions.empty();
   }
 
   addTransaction(transaction: Transaction): void {

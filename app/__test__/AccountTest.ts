@@ -54,5 +54,5 @@ describe('Account', () => {
 const A_DATE = new Date();
 
 const someTransactions: () => Transactions = () => {
-  return new Transactions()
+  return Transactions.empty()
 };
