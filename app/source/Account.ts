@@ -1,7 +1,7 @@
 import {TransactionRepository} from "./TransactionRepository";
 import {Transaction} from "./Transaction";
 import {StatementPrinter} from "./StatementPrinter";
-import {Calendar} from "../__test__/AccountTest";
+import {Calendar} from "./Calendar";
 
 export class Account {
   constructor(private readonly transactionRepository: TransactionRepository,

@@ -4,10 +4,7 @@ import {TransactionRepository} from "../source/TransactionRepository";
 import {Transaction} from "../source/Transaction";
 import {Transactions} from "../Transactions";
 import {StatementPrinter} from "../source/StatementPrinter";
-
-export interface Calendar {
-  now(): Date;
-}
+import {Calendar} from "../source/Calendar";
 
 describe('Account', () => {
   let transactionRepository: IMock<TransactionRepository>;
