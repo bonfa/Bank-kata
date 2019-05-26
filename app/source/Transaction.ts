@@ -1,12 +1,12 @@
 export class Transaction {
-  private constructor(private readonly amount: number) {
+  constructor(private readonly amount: number, private readonly onDate: Date) {
   }
 
-  static depositOf(amount: number) {
-    return new Transaction(amount);
+  static depositOf(amount: number, onDate: Date) {
+    return new Transaction(amount, onDate);
   }
 
   static withdrawOf(number: number) {
-    return new Transaction(-number);
+    return new Transaction(-number, null);
   }
 }

@@ -6,7 +6,7 @@ import {StatementPrinter} from "../source/StatementPrinter";
 
 describe('It works', () => {
   const output = Mock.ofType<Output>();
-  const account = new Account(new TransactionRepository(), new StatementPrinter());
+  const account = new Account(new TransactionRepository(), new StatementPrinter(), calendar.object);
   account.deposit(500);
   account.withdraw(100);
 

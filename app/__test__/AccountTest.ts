@@ -5,22 +5,33 @@ import {Transaction} from "../source/Transaction";
 import {Transactions} from "../Transactions";
 import {StatementPrinter} from "../source/StatementPrinter";
 
+export interface Calendar {
+  now(): Date;
+}
+
+const A_DATE = new Date();
+
 describe('Account', () => {
   let transactionRepository: IMock<TransactionRepository>;
   let statementPrinter: IMock<StatementPrinter>;
+  let calendar: IMock<Calendar>;
   let account: Account;
 
   beforeEach(() => {
     transactionRepository = Mock.ofType<TransactionRepository>();
     statementPrinter = Mock.ofType<StatementPrinter>();
-    account = new Account(transactionRepository.object, statementPrinter.object);
+    calendar = Mock.ofType<Calendar>();
+
+    account = new Account(transactionRepository.object, statementPrinter.object, calendar.object);
   });
 
   describe('when depositing some money', () => {
     it('should store the transaction in the repository', () => {
+      calendar.setup(it => it.now()).returns(() => A_DATE);
+
       account.deposit(400);
 
-      transactionRepository.verify(it => it.addTransaction(Transaction.depositOf(400)), Times.once());
+      transactionRepository.verify(it => it.addTransaction(Transaction.depositOf(400, A_DATE)), Times.once());
     });
   });
 
