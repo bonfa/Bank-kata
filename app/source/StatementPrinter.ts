@@ -9,8 +9,11 @@ export class StatementPrinter {
 
   printStatementOf(transactions: Transactions): void {
     this.output.printLine(HEADER);
-    let transactionsArray = transactions.toArray();
+    this.printTransactions(transactions);
+  }
 
+  private printTransactions(transactions: Transactions) {
+    let transactionsArray = transactions.toArray();
     let balanceAfterTransaction = 0;
     for (let index = 0; index < transactionsArray.length; index++) {
       let transaction = transactionsArray[index];
