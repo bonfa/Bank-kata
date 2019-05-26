@@ -2,7 +2,7 @@ import {Account} from "../source/Account";
 import {IMock, Mock, Times} from "typemoq";
 import {TransactionRepository} from "../source/TransactionRepository";
 import {Transaction} from "../source/Transaction";
-import {Transactions} from "../Transactions";
+import {Transactions} from "../source/Transactions";
 import {StatementPrinter} from "../source/StatementPrinter";
 import {Calendar} from "../source/Calendar";
 
