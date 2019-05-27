@@ -7,5 +7,6 @@ import {Calendar} from "./Calendar";
 const account = new Account(new TransactionRepository(), new StatementPrinter(new Output()), new Calendar());
 account.deposit(500);
 account.withdraw(100);
+account.withdraw(130);
 
 account.printStatement();
