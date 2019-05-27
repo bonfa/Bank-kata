@@ -23,7 +23,7 @@ export class StatementPrinter {
   }
 
   private printTransaction(transaction, balanceAfterTransaction) {
-    this.output.printLine(this.formatDate(transaction.getDate()) + " | " + transaction.getAmount() + " | " + balanceAfterTransaction);
+    this.output.printLine(this.formatDate(transaction.getDate()) + " | " + this.amountWithSymbol(transaction.getAmount()) + " | " + balanceAfterTransaction);
   }
 
   private formatDate(date: Date): string {
@@ -34,5 +34,9 @@ export class StatementPrinter {
     return number > 9
       ? ("" + number)
       : ("0" + number);
+  }
+
+  private amountWithSymbol(theAmount: number): string {
+    return (theAmount < 0 ? "" : "+") + theAmount;
   }
 }
