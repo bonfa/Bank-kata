@@ -1,5 +1,6 @@
 import {Transactions} from "./Transactions";
 import {Output} from "./Output";
+import {Transaction} from "./Transaction";
 
 const HEADER = "Date | Amount | Balance";
 
@@ -22,7 +23,7 @@ export class StatementPrinter {
     }
   }
 
-  private printTransaction(transaction, balanceAfterTransaction) {
+  private printTransaction(transaction: Transaction, balanceAfterTransaction: number) {
     this.output.printLine(this.formatDate(transaction.getDate()) + " | " + this.amountWithSymbol(transaction.getAmount()) + " | " + balanceAfterTransaction);
   }
 
