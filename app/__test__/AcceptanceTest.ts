@@ -16,14 +16,16 @@ class TestableCalendar extends Calendar {
 }
 
 describe('It works', () => {
-  const output = Mock.ofType<Output>();
-  const account = new Account(new TransactionRepository(), new StatementPrinter(output.object), new TestableCalendar());
-  account.deposit(500);
-  account.withdraw(100);
+  it("It works", () => {
+    const output = Mock.ofType<Output>();
+    const account = new Account(new TransactionRepository(), new StatementPrinter(output.object), new TestableCalendar());
+    account.deposit(500);
+    account.withdraw(100);
 
-  account.printStatement();
+    account.printStatement();
 
-  output.verify(it=>it.printLine("Date | Amount | Balance"), Times.exactly(1));
-  output.verify(it=>it.printLine("23.08.2016 | +500 | 500"), Times.exactly(1));
-  output.verify(it=>it.printLine("23.08.2016 | -100 | 400"), Times.exactly(1));
+    output.verify(it => it.printLine("Date | Amount | Balance"), Times.exactly(1));
+    output.verify(it => it.printLine("23.08.2016 | +500 | 500"), Times.exactly(1));
+    output.verify(it => it.printLine("23.08.2016 | -100 | 400"), Times.exactly(1));
+  });
 });
