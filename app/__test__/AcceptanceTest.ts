@@ -5,11 +5,7 @@ import {TransactionRepository} from "../source/TransactionRepository";
 import {StatementPrinter} from "../source/StatementPrinter";
 import {Calendar} from "../source/Calendar";
 
-class TestableCalendar extends Calendar {
-  constructor() {
-    super();
-  }
-
+class TestableCalendar implements Calendar {
   now(): Date {
     return new Date(2016, 7, 23);
   }

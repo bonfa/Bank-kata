@@ -1,5 +1,4 @@
-export class Calendar {
-  now(): Date {
-    return new Date();
-  }
+export interface Calendar {
+  now(): Date;
 }
+
