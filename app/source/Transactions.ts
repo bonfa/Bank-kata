@@ -19,4 +19,6 @@ export class Transactions {
   toArray(): Transaction[] {
     return (<any>Object).assign([], this.transactions);
   }
+
+
 }

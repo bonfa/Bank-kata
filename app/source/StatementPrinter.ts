@@ -24,7 +24,11 @@ export class StatementPrinter {
   }
 
   private printTransaction(transaction: Transaction, balanceAfterTransaction: number) {
-    this.output.printLine(this.formatDate(transaction.getDate()) + " | " + this.amountWithSymbol(transaction.getAmount()) + " | " + balanceAfterTransaction);
+    this.output.printLine(
+      this.formatDate(transaction.getDate()) + " | "
+      + this.amountWithSymbol(transaction.getAmount()) + " | "
+      + balanceAfterTransaction
+    );
   }
 
   private formatDate(date: Date): string {

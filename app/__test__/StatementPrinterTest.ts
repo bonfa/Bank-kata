@@ -18,11 +18,15 @@ describe('StatementPrinter', () => {
     let output = Mock.ofType<Output>();
     let statementPrinter = new StatementPrinter(output.object);
 
-    statementPrinter.printStatementOf(Transactions.from([Transaction.depositOf(200, ANOTHER_DATE), Transaction.depositOf(100, A_DATE)]));
+    statementPrinter.printStatementOf(Transactions.from([
+        Transaction.depositOf(200, ANOTHER_DATE),
+        Transaction.depositOf(100, A_DATE)
+      ])
+    );
 
     output.verify(it => it.printLine("Date | Amount | Balance"), Times.once());
-    output.verify(it => it.printLine("24.05.2019 | 200 | 200" ), Times.once());
-    output.verify(it => it.printLine("26.05.2019 | 100 | 300"), Times.once());
+    output.verify(it => it.printLine("24.05.2019 | +200 | 200"), Times.once());
+    output.verify(it => it.printLine("26.05.2019 | +100 | 300"), Times.once());
   });
 });
 
